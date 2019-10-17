@@ -1,6 +1,6 @@
 # Simulation package
 
-A simulation package based on the python Ciw package, that was created to simplify its use in the context of the gIAp@TicAPP project.
+A simulation package based on the python Ciw package, that was created to simplify its use.
 
 ## Getting Started
 
