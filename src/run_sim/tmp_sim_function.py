@@ -5,8 +5,6 @@ import os
 
 assert ciw.__version__ == '1.1.5', "ciw package is not the correct version (1.1.5) to run this function!" 
 
-ciw.seed(5)
-
 user_name = os.getcwd().split('\\')[2].split('.')[0].capitalize()
 print(f'\nOlá, {user_name}!')
 
@@ -76,12 +74,9 @@ class Simulation:
         
         assert number_of_servers > 0, "Number of servers needs to be bigger than zero!"
 
-        # max_time = max_hrs_time * 60
-        max_time = max_hrs_time
-        # lamda = arrivals_per_hour / 60 # our λ
-        lamda = arrivals_per_hour # our λ
-        # mue = 1 / service_mins_per_server # our μ
-        mue = 60 / service_mins_per_server # our μ
+        max_time = max_hrs_time * 60
+        lamda = arrivals_per_hour / 60 # our λ
+        mue = 1 / service_mins_per_server # our μ
         
         # This is the distribution that inter-arrival times are drawn from;
         # that is, the time between two consecutive arrivals
