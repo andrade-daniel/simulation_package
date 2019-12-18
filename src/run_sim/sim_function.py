@@ -1,14 +1,14 @@
 import ciw
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
+# import os
 
 assert ciw.__version__ == '1.1.5', "ciw package is not the correct version (1.1.5) to run this function!" 
 
 ciw.seed(5)
 
-user_name = os.getcwd().split('\\')[2].split('.')[0].capitalize()
-print(f'\nOlá, {user_name}!')
+# user_name = os.getcwd().split('\\')[2].split('.')[0].capitalize()
+# print(f'\nOlá, {user_name}!')
 
 class Simulation:
 
