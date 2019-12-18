@@ -81,10 +81,10 @@ if can_submit and len(can_submit) == 4:
     number_of_servers_sel = params["arrivals_per_hour"] / (
     params["number_of_servers"] * (60 / params["service_mins_per_server"])
 )
-
     submit = st.sidebar.button('Correr simulação!')
 else:
     submit = None
+    st.write('Comece por selecionar os parâmetros')
 
 if submit:
 
@@ -100,12 +100,14 @@ if submit:
 
         if params["number_of_servers"] < s and params['max_hrs_time'] > 0:
             
-            warning_msg =  f"AVISO: Aumente o número de mesas, de forma a obter um sistema estável. \nMantendo os restantes parâmetros constantes, o número mínimo de mesas deverá ser: {s}. \nNeste momento, existem {round(number_of_servers_sel, 3)} vezes mais cidadãos a chegar do que a sair do sistema."
+            warning_msg =  f"AVISO: Aumente o número de mesas, de forma a obter um sistema estável. \nMantendo os restantes parâmetros constantes, o número mínimo de mesas deverá ser: {s}."
         else:
             warning_msg = None
 
         if warning_msg:
             st.write(warning_msg)
+            st.write(f"Neste momento, existem {round(number_of_servers_sel, 3)} vezes mais cidadãos a chegar do que a sair do sistema.")
+            st.write("Significa que o sistema teria uma fila que cresce infinitamente, tornando-se maior quanto maior for o tempo de simulação, levando a um aumento dos tempos de espera.")
 
     # Set simulation parameters
     sim = Simulation(**params)
