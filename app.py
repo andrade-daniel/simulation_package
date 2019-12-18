@@ -210,4 +210,8 @@ if submit:
     # st.pyplot()
     plt.clf()
 
+    st.success('Concluído!')
 
+submit_extra = st.button('Parabéns TicAPP!')
+if submit_extra:
+    st.balloons()
