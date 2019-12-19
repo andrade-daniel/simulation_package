@@ -117,7 +117,7 @@ if submit:
         with st.spinner('Aguarde um pouco...'):
             Q = sim.simulate_waiting_time()
 
-    st.subheader('Resultados')
+    st.markdown('## Resultados 🎲')
     
     # Extract simulation results
     server_busy_time = Q.transitive_nodes
@@ -181,7 +181,7 @@ if submit:
     }
     
     if len(waits) == 0:
-        st.write('Aumente o número de horas para simulação (> 1 hora)!')
+        st.write('Sem inputs suficientes para obter resultados. Por favor, aumente o número de horas para simulação e/ou altere outros parâmetros!')
     elif len(waits) > 0:
         st.table(pd.DataFrame({'Cidadãos servidos por hora': np.floor(60/sim.service_mins_per_server),
         'Tempo médio de espera (mins)': round(average_waits, 2),
@@ -193,7 +193,8 @@ if submit:
         'Cidadãos servidos': completed_custs}, index=['']))
 
     # plot_waiting_mean(waits, average_waits, mean_service_time, **plot_params)
-    st.header('Distribuição tempos espera')
+    # st.markdown('## Distribuição tempos espera 🕑')
+    st.markdown('## Distribuição tempos espera')
     
     plot_waiting_mean(waits, average_waits)
 
@@ -203,7 +204,8 @@ if submit:
     # Plot queue sizes
     queue_sizes_at_arrival = [r.queue_size_at_arrival for r in recs if r.arrival_date > warm_up_time and r.arrival_date < cooldown]
     
-    st.header('Tamanho da fila em cada chegada')
+    # st.markdown('## Tamanho da fila em cada chegada ♟♟♟')
+    st.markdown('## Tamanho da fila em cada chegada')
     st.line_chart(queue_sizes_at_arrival, height=2)
     # pd.Series(queue_sizes_at_arrival).plot()
     # # plt.title(f'Tamanho da fila em cada chegada')
